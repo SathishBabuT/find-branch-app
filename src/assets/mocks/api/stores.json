@@ -1,0 +1,668 @@
+{
+   "map":{
+      "zoom":13,
+      "lat":48.2088364,
+      "lng":16.3734791,
+      "type":"google.maps.MapTypeId.ROADMAP",
+      "startIcon":"/linkableblob/-/314956/6a944ed24349fa3b379b5644ad567667/mylocationpin-png-data.png",
+      "activeIcon":"/linkableblob/-/314952/ab846bbeeeaedf59e4ab71496b47da73/actualfilialicon-png-data.png"
+   },
+   "message":"Das Suchergebnis ist nach Entfernung zur eingegebenen Adresse oder zum Ortsmittelpunkt sortiert (siehe PIN auf der Landkarte). Für eine Anzeige der Ergebnisse nach Trefferquote der zusätzlich definierten Kriterien, sortieren Sie die Liste einfach unter Service Treffer.",
+   "environments":{
+      "84494":"Bargeldservice",
+      "84504":"Kontostandsinfo",
+      "84498":"Bargeldeinzahlung",
+      "84496":"Münzzähler",
+      "84500":"Kontoservice",
+      "84502":"SB Überweisung"
+   },
+   "services":{
+      "84562":"SB Zone 7 / 24",
+      "84558":"Barrierefrei",
+      "84546":"Tageslosung Geschäftskonten",
+      "84556":"Businesskonto",
+      "88654":"Safe",
+      "84550":"Kommerziell zu beurteilende Finanzierungen",
+      "84566":"Gold & Valuten An-/Verkauf",
+      "104598":"SPARDA Point",
+      "84564":"Wohnbauberatung",
+      "466496":"Giro, Kredit, Veranlagung, KEINE Bargeldtransakt.",
+      "466498":"Flexible Servicezeiten"
+   },
+   "languages":{
+      "207054":"Albanisch/ Shqip",
+      "213640":"Armenisch/ Hayeren",
+      "84510":"Bosnisch/ Bosanski",
+      "84524":"Bulgarisch/ български",
+      "84506":"Englisch/ English",
+      "84520":"Französisch/ Français",
+      "507176":"Hindi",
+      "84526":"Italienisch/ Italiano",
+      "84522":"Kroatisch/ Hrvatski",
+      "84532":"Kurdisch/ Kurdi",
+      "422054":"Mazedonisch/ Mакедонски",
+      "207056":"Persisch/ Farsi",
+      "84512":"Polnisch/ Polski",
+      "84518":"Rumänisch/ Român",
+      "84534":"Russisch/ русском",
+      "84514":"Serbisch/ Srpski",
+      "84528":"Slowakisch/ Slovenských",
+      "84542":"Slowenisch/ Slovenščina",
+      "84516":"Spanisch/ Español",
+      "84540":"Tschechisch/ Český",
+      "84508":"Türkisch/ Türkçe",
+      "84530":"Ungarisch/ Magyar",
+      "507178":"Urdu"
+   },
+   "stores":[
+      {
+         "id":493030,
+         "gsnr":"100",
+         "map":{
+            "lat":48.21117,
+            "lng":16.3718,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG Filiale",
+         "marker_image":"marker.png",
+         "range":1,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"493030"
+            },
+            "address":{
+               "plz":"1010",
+               "city":"Wien",
+               "street":"Wipplinger Straße 1",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84496,
+               84498,
+               84502,
+               84500,
+               84504
+            ],
+            "services":[
+               84564,
+               84556,
+               84546,
+               84566,
+               84562,
+               104598
+            ],
+            "languages":[
+               84506,
+               84514,
+               84508,
+               84518,
+               84512,
+               84522,
+               84510
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Mo - Fr":"9:00 - 17:00(Kassazeiten 9:00 - 13:00)"
+            },
+            "distanceCalc":"0,3 km",
+            "phone":"05 99 05-6100 00",
+            "fax":"",
+            "email":"gs100@bawagpsk.com",
+            "contact":{
+               "name":"Roland Engl",
+               "advisorType":"Filialleiter"
+            }
+         }
+      },
+      {
+         "id":492976,
+         "gsnr":"025SB",
+         "map":{
+            "lat":48.21883143,
+            "lng":16.38081063,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG SB-Filiale",
+         "marker_image":"marker.png",
+         "range":2,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":true,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"492976"
+            },
+            "address":{
+               "plz":"1020",
+               "city":"Wien",
+               "street":"Taborstraße 37",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84500,
+               84502,
+               84504,
+               84498,
+               84496
+            ],
+            "services":[
+               84562,
+               84558
+            ],
+            "languages":[
+               
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "SB-Foyer":"24 Stunden"
+            },
+            "distanceCalc":"1,2 km",
+            "phone":"",
+            "fax":"",
+            "email":""
+         }
+      },
+      {
+         "id":493000,
+         "gsnr":"046",
+         "map":{
+            "lat":48.20192019,
+            "lng":16.39136475,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG Filiale",
+         "marker_image":"marker.png",
+         "range":3,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"493000"
+            },
+            "address":{
+               "plz":"1030",
+               "city":"Wien",
+               "street":"Landstraßer Hauptstraße 60",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84498,
+               84502,
+               84504,
+               84500,
+               84496
+            ],
+            "services":[
+               84566,
+               84546,
+               84562,
+               84564,
+               88654,
+               84558,
+               84556
+            ],
+            "languages":[
+               84506,
+               84522,
+               84510,
+               84514,
+               422054
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Mo - Fr":"9:00 - 17:00(Kassazeiten 9-13 Uhr) "
+            },
+            "distanceCalc":"1,5 km",
+            "phone":"05 99 05-6046 00",
+            "fax":"",
+            "email":"gs046@bawagpsk.com",
+            "contact":{
+               "name":"Manuel Steiner",
+               "advisorType":"Filialleiter"
+            }
+         }
+      },
+      {
+         "id":492966,
+         "gsnr":"013",
+         "map":{
+            "lat":48.21476686,
+            "lng":16.34928717,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG Filiale",
+         "marker_image":"marker.png",
+         "range":4,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"492966"
+            },
+            "address":{
+               "plz":"1080",
+               "city":"Wien",
+               "street":"Alser Straße 31",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84498,
+               84502,
+               84504,
+               84500,
+               84496
+            ],
+            "services":[
+               84546,
+               84562,
+               84564,
+               84558,
+               84556
+            ],
+            "languages":[
+               84506,
+               84508,
+               84512,
+               207056
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Mo - Fr":"9:00 - 17:00(Kassazeiten 9:00 - 13:00)"
+            },
+            "distanceCalc":"1,9 km",
+            "phone":"05 99 05-6013 00",
+            "fax":"",
+            "email":"gs013@bawagpsk.com",
+            "contact":{
+               "name":"Katharina Zuchowicz",
+               "advisorType":"Filialleiterin"
+            }
+         }
+      },
+      {
+         "id":492982,
+         "gsnr":"030",
+         "map":{
+            "lat":48.19270401,
+            "lng":16.35517682,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG Filiale",
+         "marker_image":"marker.png",
+         "range":5,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"492982"
+            },
+            "address":{
+               "plz":"1050",
+               "city":"Wien",
+               "street":"Pilgramgasse 17",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84498,
+               84502,
+               84504,
+               84500,
+               84496
+            ],
+            "services":[
+               84546,
+               84562,
+               84564,
+               84558,
+               88654,
+               84556
+            ],
+            "languages":[
+               84506,
+               84508,
+               84514,
+               84522,
+               84518,
+               84526
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Mo - Fr":"9:00 - 17:00(Kassazeiten 9:00 - 13:00)"
+            },
+            "distanceCalc":"2,2 km",
+            "phone":"05 99 05-6030 00",
+            "fax":"",
+            "email":"gs030@bawagpsk.com",
+            "contact":{
+               "name":"Amir Khoshideh",
+               "advisorType":"Filialleiter"
+            }
+         }
+      },
+      {
+         "id":492964,
+         "gsnr":"012",
+         "map":{
+            "lat":48.19757124,
+            "lng":16.34790896,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG Filiale",
+         "marker_image":"marker.png",
+         "range":6,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"492964"
+            },
+            "address":{
+               "plz":"1060",
+               "city":"Wien",
+               "street":"Mariahilfer Straße 89a",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84498,
+               84500,
+               84504,
+               84502,
+               84496
+            ],
+            "services":[
+               84564,
+               84546,
+               84566,
+               88654,
+               84558,
+               84562,
+               104598,
+               84556
+            ],
+            "languages":[
+               84506,
+               84508,
+               207054
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Mo - Fr":"9:00 - 17:00(Kassazeiten 9:00 - 13:00)"
+            },
+            "distanceCalc":"2,3 km",
+            "phone":"05 99 05-6012 00",
+            "fax":"",
+            "email":"gs012@bawagpsk.com",
+            "contact":{
+               "name":"Erwin Daubek",
+               "advisorType":"Filialleiter"
+            }
+         }
+      },
+      {
+         "id":493022,
+         "gsnr":"069",
+         "map":{
+            "lat":48.229578,
+            "lng":16.3707675,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG Filiale",
+         "marker_image":"marker.png",
+         "range":7,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"493022"
+            },
+            "address":{
+               "plz":"1200",
+               "city":"Wien",
+               "street":"Wallensteinstr 32",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84500,
+               84502,
+               84504,
+               84498,
+               84496
+            ],
+            "services":[
+               84566,
+               84546,
+               84562,
+               84564,
+               84558,
+               88654,
+               104598,
+               84556
+            ],
+            "languages":[
+               84520,
+               207054,
+               84506,
+               84508,
+               84534
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Mo - Fr":"9:00 - 17:00(Kassazeiten 9-13 Uhr) "
+            },
+            "distanceCalc":"2,3 km",
+            "phone":"05 99 05-6069 00",
+            "fax":"",
+            "email":"gs069@bawagpsk.com",
+            "contact":{
+               "name":"Martin Horvath",
+               "advisorType":"Filialleiter"
+            }
+         }
+      },
+      {
+         "id":492978,
+         "gsnr":"027",
+         "map":{
+            "lat":48.22305898,
+            "lng":16.40014773,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG Filiale",
+         "marker_image":"marker.png",
+         "range":8,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"492978"
+            },
+            "address":{
+               "plz":"1020",
+               "city":"Wien",
+               "street":"Lassallestraße 38",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84498,
+               84500,
+               84502,
+               84504,
+               84496
+            ],
+            "services":[
+               84564,
+               84546,
+               84566,
+               88654,
+               84562,
+               104598,
+               84556
+            ],
+            "languages":[
+               84506,
+               84522,
+               84514,
+               84508,
+               84510,
+               84524,
+               207056,
+               84534
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Mo - Fr":"9:00 - 17:00 (Kassazeiten 9-13 Uhr) "
+            },
+            "distanceCalc":"2,5 km",
+            "phone":"05 99 05-6027 00",
+            "fax":"",
+            "email":"gs027@bawagpsk.com",
+            "contact":{
+               "name":"Mag. Josef Kargl",
+               "advisorType":"Filialleiter"
+            }
+         }
+      },
+      {
+         "id":494074,
+         "gsnr":"132SB",
+         "map":{
+            "lat":48.18612,
+            "lng":16.37671,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"BAWAG SB-Filiale",
+         "marker_image":"marker.png",
+         "range":9,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":true,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"494074"
+            },
+            "address":{
+               "plz":"1100",
+               "city":"Wien",
+               "street":"Wiedner Gürtel 13 Top 4",
+               "state":"Wien"
+            },
+            "environments":[
+               84494,
+               84498,
+               84502,
+               84504,
+               84500,
+               84496
+            ],
+            "services":[
+               84562,
+               84558
+            ],
+            "languages":[
+               
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "SB-Foyer":"24 Stunden"
+            },
+            "distanceCalc":"2,5 km",
+            "phone":"",
+            "fax":"",
+            "email":""
+         }
+      },
+      {
+         "id":523854,
+         "gsnr":"132GK",
+         "map":{
+            "lat":48.18606,
+            "lng":16.3773,
+            "icon":"/linkableblob/-/314954/4253258194de8a0173cdd3ddba6fdce7/myfiliale-png-data.png",
+            "shadow":"/linkableblob/-/116778/233e726bec16a0d3abb7153329be0c4e/marker-shadow-png-data.png"
+         },
+         "title":"Geschäftskundencenter ",
+         "marker_image":"marker.png",
+         "range":10,
+         "info":{
+            "isServicefiliale":false,
+            "isSafefiliale":false,
+            "appointment":{
+               "target":"_blank",
+               "title":"Termin vereinbaren",
+               "link":"/wizard/Forms/206494/termin-pk.html?Betreff=Filiale",
+               "firstCoreFilialeId":"523854"
+            },
+            "address":{
+               "plz":"1100",
+               "city":"Wien",
+               "street":"Wiedner Gürtel 13 ICON Mall",
+               "state":"Wien"
+            },
+            "environments":[
+               
+            ],
+            "services":[
+               84558,
+               84556,
+               84550
+            ],
+            "languages":[
+               
+            ],
+            "servicepercentage":0,
+            "openinghours":{
+               "Bankbetreuungszeiten:":"nur nach vorheriger Terminvereinbarung"
+            },
+            "distanceCalc":"2,5 km",
+            "consultinghours":"nach Vereinbarung",
+            "phone":"05 99 05-995",
+            "fax":"",
+            "email":"gs132@bawagpsk.com"
+         }
+      }
+   ]
+}

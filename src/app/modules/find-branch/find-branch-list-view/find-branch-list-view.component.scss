@@ -1,0 +1,90 @@
+.left-section {
+    padding: 0px 32px;
+    background: #F6F6F6;
+    height: 100vh;
+
+    .bawag-text {
+        color: #990000;
+        margin-top: 4%;
+    }
+
+    .section-title {
+        margin-top: 6%;    
+    }
+    .search-box {
+        margin-top: 6%;
+        .search-icon {
+            position: absolute;
+            top: 19.2%;
+            right: 11%;
+            cursor: pointer;
+        }
+    }
+    .text-area {
+        margin-top: 6%;
+        border: 1px solid #75B8D9;
+        padding: 12px;
+    }
+    .list-data {
+        max-height: 54vh;
+        overflow-y: scroll;
+    }
+    .branch-list {
+        margin-top: 6%;
+        background: #FFFFFF;
+        border-radius: 3px;
+        padding: 12px;
+        list-style-type: none;
+    }
+    .heading {
+        font-weight: 700;
+    }
+    .list-count {
+        margin-top: 6%;
+    }
+    .filter-heading {
+        padding-top: 12%;
+        i {
+            padding-top: 4%; 
+        }
+    }
+    .accordion-filial {
+        margin-top: 6.5%;
+    }
+    .service-list {
+        margin-top: 6%;
+    }
+    .accordion-body {
+        background: #F6F6F6;
+    }
+    .accordion-button{
+        background: #F6F6F6;
+        color: black;
+        &:hover, &:focus {
+            background: #F6F6F6;
+            border-color: unset;
+            color: black;
+        }
+    }
+    .walk-icon {
+        width: 14%;
+    }
+    footer {
+        background: white;
+        position: fixed;
+        height: 47px;
+        bottom: 0%;
+        left: 0%;
+        width: 25%;
+        padding: 10px 32px;
+    }
+    .apply-filter {
+        background: #990000;
+        border-radius: 14px;
+        color: #FFFFFF;
+        border: unset;
+    }
+    .filter-active {
+        color: #990000;
+    }
+}

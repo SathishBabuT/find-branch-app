@@ -94,6 +94,7 @@ navigateToDetailPage: boolean = false;
     this.checkboxes.forEach((element) => {
       element.nativeElement.checked = false;
     });
+    this.selectedService.length = 0;
     // this.checkboxesTwo.forEach((element) => {
     //   element.nativeElement.checked = false;
     // });

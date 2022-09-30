@@ -93,8 +93,8 @@
             </div>
         <footer>
             <div class="row">
-                <span class="col-sm-6"><i class="fa fa-close me-2 cursor-pointer" (click)="clearFilters()"></i>Filter löschen</span>
-                <button class="offset-sm-2 col-sm-4 apply-filter" (click)="applyFilter()">Anzeigen</button>
+                <span class="col-sm-6 cursor-pointer" (click)="clearFilters()"><i class="fa fa-close me-2"></i>Filter löschen</span>
+                <button class="offset-sm-2 col-sm-4 filialFinder-btn" (click)="applyFilter()">Anzeigen</button>
             </div>
         </footer>
     </div>
@@ -105,8 +105,12 @@
             <a><img src="../../../../assets/navigator.png"></a>
             </span>
         </div>
-        <div>
-            <span (click)="navigateBack()" class="cursor-pointer"><i class="fa fa-long-arrow-left"></i>Zurück zur Übersicht</span>
+        <div class="detail-page-nav">
+            <span (click)="navigateBack()" class="cursor-pointer"><i class="fa fa-long-arrow-left me-2"></i>Zurück zur Übersicht</span>
+        </div>
+        <div class="detail-page-buttons">
+            <button type="button" class="filialFinder-btn col-sm-12">Termin vereinbaren</button>
+            <button type="button" class="filialFinder-btn-1 mt-3 col-sm-12">Navigation</button>
         </div>
         <div class="text-area">
             <div class="row">
@@ -114,8 +118,8 @@
                 <span class="col-sm-10">Allgemeine Informationen in einer Snackbar Notification</span>
             </div>
         </div>
-        <div class="list-data">
-            <ul *ngFor="let storeDetail of selectedStoreDetails; let i = index;" class="branch-list cursor-pointer">
+        <div class="store-details-parent">
+            <ul *ngFor="let storeDetail of selectedStoreDetails; let i = index;" class="selected-store cursor-pointer">
                 <li class="heading">{{storeDetail.title}}</li>
                 <li>{{storeDetail.street}}</li>
                 <li>{{storeDetail.zip}} {{storeDetail.state}}</li>
@@ -126,9 +130,16 @@
                     <span class="col-sm-4 p-0">{{storeDetail.distance}}</span>
                 </li>
             </ul>
-        </div>
-        <div class="list-data">
-            Testing
+            <div class="store-details">
+                <span class="d-block heading">Öffnungszeiten</span>
+                <span class="d-block">Mo - Fr: 9:00 - 17:00 Uhr</span>
+                <span class="d-block">Kassazeiten: 9:00 - 13:00</span>
+            </div>
+            <div class="store-details">
+                <span class="d-block heading">Kundenservices</span>
+                <span class="d-block"><i class="fa fa-check me-2"></i>Wohnbauberatung</span>
+                <span class="d-block"><i class="fa fa-check me-2"></i>Businesskonto</span>
+            </div>
         </div>
     </div>
 </div>

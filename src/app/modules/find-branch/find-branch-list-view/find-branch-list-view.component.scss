@@ -78,13 +78,48 @@
         width: 25%;
         padding: 10px 32px;
     }
-    .apply-filter {
+    .filialFinder-btn {
         background: #990000;
         border-radius: 14px;
         color: #FFFFFF;
         border: unset;
+        padding-top: 2px;
+        padding-bottom: 2px;
     }
     .filter-active {
         color: #990000;
+    }
+    // .selected-store-list {
+    //     max-height: 54vh;
+    //     overflow-y: scroll;
+    // }
+    .selected-store {
+        margin-top: 6%;
+        background: #FFFFFF;
+        border-radius: 3px;
+        padding: 12px;
+        list-style-type: none;
+    }
+    .filialFinder-btn-1 {
+        background: unset;
+        color: #990000;
+        border-radius: 14px;
+        border-color: #990000;
+    }
+    .detail-page-buttons {
+        margin-top: 8%;
+    }
+    .detail-page-nav {
+        margin-top: 8%;
+    }
+    .store-details-parent {
+        max-height: 52vh;
+        overflow-y: scroll;
+        margin-top: 5%;
+    }
+    .store-details {
+        margin-top: 6%;
+        background: #FFFFFF;
+        padding: 12px;
     }
 }

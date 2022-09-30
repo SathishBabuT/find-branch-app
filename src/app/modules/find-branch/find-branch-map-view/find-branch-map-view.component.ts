@@ -14,7 +14,7 @@ export class FindBranchMapViewComponent implements OnInit {
   //apiLoaded: Observable<boolean>;
   mapOptions: google.maps.MapOptions = {
     zoom : 14,
-    zoomControl: true,
+    zoomControl: false,
     streetViewControl: true,
     maxZoom: 16,
     minZoom: 4
@@ -26,7 +26,7 @@ export class FindBranchMapViewComponent implements OnInit {
   storeAddress: any[] = [];
   @ViewChild('googleMap', { static: false }) map!: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
-  //@ViewChild('mapMarker') mapMarkerDummy: MapMarker;
+  @ViewChild('mapMarker') mapMarkerDummy: MapMarker;
   //@ViewChild(MapInfoWindow) infoWindowViews: QueryList<MapInfoWindow>;
   constructor(private httpClient: HttpClient, private cd: ChangeDetectorRef) {
   }
@@ -59,6 +59,7 @@ export class FindBranchMapViewComponent implements OnInit {
         },
         "icon": "https://www.google.com/mapfiles/marker.png"
       })
+      const walk="../../../../assets/walk.png";
       response.stores.forEach((res: any, index: number)=> {
         const markerObj = {
           "position": { "lat": res.map.lat, "lng": res.map.lng },
@@ -66,10 +67,10 @@ export class FindBranchMapViewComponent implements OnInit {
             "animation": google.maps.Animation.DROP
           },
           "icon": this.location_logo,
-          "info": '<div id="content">' + '<h5 class="heading">BAWAG Filiale</h5>' +
+          "info": '<div id="content">' + '<h5 class="heading">'+ res.title +'</h5>' +
                     '<div id="bodyContent">' +
                     "<span><b>"
-                    + res.info.address.street +"</b></span><br><span><b>"+ res.info.address.plz + ' ' + res.info.address.city + "<b></span><br><span></div></div>"
+                    + res.info.address.street +"</b></span><br><span><b>"+ res.info.address.plz + ' ' + res.info.address.city + "</b></span><br><span><img src="+ walk +">"+ res.info.distanceCalc +"</b></span></div></div>"
         };
         this.markers.push(markerObj);
         const storeObj = {
@@ -138,6 +139,6 @@ export class FindBranchMapViewComponent implements OnInit {
   panToLocation(obj: any) {
     const latLng = new google.maps.LatLng(obj.lat, obj.lng);
     this.map.panTo(latLng);
-    //this.openInfoWindow(this.mapMarkerDummy, this.markers[obj.index].info);
+    //this.openInfoWindow(this.markers[obj.index], this.markers[obj.index].info);
   }
 }

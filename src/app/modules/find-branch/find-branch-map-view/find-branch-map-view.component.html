@@ -1,12 +1,25 @@
 <section>
-    <div class="col-sm-3" *ngIf="storeAddress.length !== 0" style="position: absolute; z-index:1;">
-        <app-find-branch-list-view [storeAddress]="storeAddress" (filterResultEvent) = "filterResults($event)" (panToLocation)="panToLocation($event)"></app-find-branch-list-view>
+    <div class="col-sm-3 find-branch-view" *ngIf="storeAddress.length !== 0">
+        <app-find-branch-list-view [storeAddress]="storeAddress" [listView]="listView" (filterResultEvent) = "filterResults($event)" (panToLocation)="panToLocation($event)"></app-find-branch-list-view>
     </div>
-    <google-map #googleMap [options]="mapOptions" [center]="center" width="100%" height="100vh">
-        <map-marker #marker="mapMarker" *ngFor="let mp  of markers" [position]="mp.position" [animation]="mp.animation" [icon]="mp.icon" [options]="mp.options" (mapClick)="openInfoWindow(marker, mp.info)">
-        </map-marker>
-        <map-info-window [options]="infoOptions"></map-info-window>
-    </google-map>
+    <div class="d-block d-sm-none mobile-view">
+        <google-map *ngIf="!listView" #googleMap [options]="mapOptions" [center]="center" width="100%" height="59vh">
+            <map-marker #marker="mapMarker" *ngFor="let mp  of markers" [position]="mp.position" [animation]="mp.animation" [icon]="mp.icon" [options]="mp.options" (mapClick)="openInfoWindow(marker, mp.info)">
+            </map-marker>
+            <map-info-window [options]="infoOptions"></map-info-window>
+        </google-map>
+    </div>
+    <div class="d-none d-sm-block">
+        <google-map #googleMap [options]="mapOptions" [center]="center" width="100%" height="100vh">
+            <map-marker #marker="mapMarker" *ngFor="let mp  of markers" [position]="mp.position" [animation]="mp.animation" [icon]="mp.icon" [options]="mp.options" (mapClick)="openInfoWindow(marker, mp.info)">
+            </map-marker>
+            <map-info-window [options]="infoOptions"></map-info-window>
+        </google-map>
+    </div>
+    <footer class="actions d-block d-sm-none">
+        <button *ngIf="listView" class="filialFinder-btn" (click)="decideView()">Karte anzeigen</button>
+        <button *ngIf="!listView" class="filialFinder-btn" (click)="decideView()">Liste anzeigen</button>
+    </footer>
     <!--<button (click)="zoomIn()">+</button>
     <button (click)="zoomOut()">-</button>-->
     <!--<div *ngIf="apiLoaded | async">

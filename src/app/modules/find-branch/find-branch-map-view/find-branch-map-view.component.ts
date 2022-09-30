@@ -14,7 +14,7 @@ export class FindBranchMapViewComponent implements OnInit {
   //apiLoaded: Observable<boolean>;
   mapOptions: google.maps.MapOptions = {
     zoom : 14,
-    zoomControl: false,
+    zoomControl: true,
     streetViewControl: true,
     maxZoom: 16,
     minZoom: 4
@@ -24,11 +24,14 @@ export class FindBranchMapViewComponent implements OnInit {
   location_logo = { "url": "../assets/bawag_indicator.png", scaledSize: new google.maps.Size(50, 50)};
   infoOptions = {};
   storeAddress: any[] = [];
+  listView: boolean = true;
+  mobileMode: string;
   @ViewChild('googleMap', { static: false }) map!: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
   @ViewChild('mapMarker') mapMarkerDummy: MapMarker;
   //@ViewChild(MapInfoWindow) infoWindowViews: QueryList<MapInfoWindow>;
   constructor(private httpClient: HttpClient, private cd: ChangeDetectorRef) {
+    this.mobileMode = navigator.userAgent;
   }
 
   ngOnInit(): void {
@@ -140,5 +143,9 @@ export class FindBranchMapViewComponent implements OnInit {
     const latLng = new google.maps.LatLng(obj.lat, obj.lng);
     this.map.panTo(latLng);
     //this.openInfoWindow(this.markers[obj.index], this.markers[obj.index].info);
+  }
+
+  decideView() {
+    this.listView = !this.listView;
   }
 }

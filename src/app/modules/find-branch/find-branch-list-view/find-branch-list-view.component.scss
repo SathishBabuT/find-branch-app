@@ -26,8 +26,9 @@
         padding: 12px;
     }
     .list-data {
-        max-height: 54vh;
+        max-height: 60vh;
         overflow-y: scroll;
+        overflow-x: hidden;
     }
     .branch-list {
         margin-top: 6%;
@@ -72,19 +73,12 @@
     footer {
         background: white;
         position: fixed;
-        height: 47px;
+        height: 8%;
         bottom: 0%;
         left: 0%;
-        width: 25%;
+        width: 100%;
         padding: 10px 32px;
-    }
-    .filialFinder-btn {
-        background: #990000;
-        border-radius: 14px;
-        color: #FFFFFF;
-        border: unset;
-        padding-top: 2px;
-        padding-bottom: 2px;
+        z-index: 2;
     }
     .filter-active {
         color: #990000;
@@ -113,7 +107,7 @@
         margin-top: 8%;
     }
     .store-details-parent {
-        max-height: 52vh;
+        max-height: 43vh;
         overflow-y: scroll;
         margin-top: 5%;
     }
@@ -121,5 +115,19 @@
         margin-top: 6%;
         background: #FFFFFF;
         padding: 12px;
+    }
+}
+
+@media (min-width: 768px) {
+    .left-section {
+        .list-data {
+            max-height: 66vh;
+        }
+        footer {
+            width: 25%;
+        }
+        .store-details-parent {
+            max-height: 52vh;
+        }
     }
 }

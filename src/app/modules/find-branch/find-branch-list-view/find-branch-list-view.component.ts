@@ -18,6 +18,7 @@ selectedStoreDetails: any[];
 navigateToDetailPage: boolean = false;
 
 @Input() storeAddress: any[];
+@Input() listView: boolean;
 @Output() filterResultEvent = new EventEmitter<any>();
 @Output() panToLocation = new EventEmitter<any>();
 @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;

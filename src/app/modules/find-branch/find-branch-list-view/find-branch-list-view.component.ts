@@ -16,11 +16,13 @@ serviceListTwo: any[];
 selectedService: any[] = [];
 selectedStoreDetails: any[];
 navigateToDetailPage: boolean = false;
+valueSelected: boolean = true;
 
 @Input() storeAddress: any[];
 @Input() listView: boolean;
 @Output() filterResultEvent = new EventEmitter<any>();
 @Output() panToLocation = new EventEmitter<any>();
+@Output() addMarkers = new EventEmitter<any>();
 @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
 @ViewChildren("storeDetails") storeDetails: QueryList<ElementRef>;
 //@ViewChildren("checkboxesTow") checkboxesTwo: QueryList<ElementRef>; 
@@ -84,6 +86,11 @@ navigateToDetailPage: boolean = false;
   }
 
   addressChange(selectedObj:any) {
+    // if(selectedObj) {
+    //   this.valueSelected = true;
+    //   this.branchList = this.storeAddress;
+    //   this.addMarkers.emit();
+    // }
     //this.branchList = this.storeAddress.filter(data => data.street === selectedObj.street);
   }
 

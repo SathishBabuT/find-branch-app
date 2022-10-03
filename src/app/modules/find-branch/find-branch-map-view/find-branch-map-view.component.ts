@@ -14,7 +14,7 @@ export class FindBranchMapViewComponent implements OnInit {
   //apiLoaded: Observable<boolean>;
   mapOptions: google.maps.MapOptions = {
     zoom : 14,
-    zoomControl: true,
+    zoomControl: false,
     streetViewControl: true,
     maxZoom: 16,
     minZoom: 4
@@ -26,9 +26,10 @@ export class FindBranchMapViewComponent implements OnInit {
   storeAddress: any[] = [];
   listView: boolean = true;
   mobileMode: string;
+  enableMarkers: boolean = false;
   @ViewChild('googleMap', { static: false }) map!: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
-  @ViewChild('mapMarker') mapMarkerDummy: MapMarker;
+  @ViewChild('marker') mapMarkerDummy: MapMarker;
   //@ViewChild(MapInfoWindow) infoWindowViews: QueryList<MapInfoWindow>;
   constructor(private httpClient: HttpClient, private cd: ChangeDetectorRef) {
     this.mobileMode = navigator.userAgent;
@@ -73,7 +74,8 @@ export class FindBranchMapViewComponent implements OnInit {
           "info": '<div id="content">' + '<h5 class="heading">'+ res.title +'</h5>' +
                     '<div id="bodyContent">' +
                     "<span><b>"
-                    + res.info.address.street +"</b></span><br><span><b>"+ res.info.address.plz + ' ' + res.info.address.city + "</b></span><br><span><img src="+ walk +">"+ res.info.distanceCalc +"</b></span></div></div>"
+                    + res.info.address.street +"</b></span><br><span><b>"+ res.info.address.plz + ' ' + res.info.address.city + "</b></span><br><span><img src="+ walk +">"+ res.info.distanceCalc +"</b></span><br>"+
+                    "<span>"+ res.info.status +"</b></span></div></div>"
         };
         this.markers.push(markerObj);
         const storeObj = {
@@ -87,7 +89,8 @@ export class FindBranchMapViewComponent implements OnInit {
           "email": res.info.email.split('@')[0],
           "title": res.title,
           "lat": res.map.lat,
-          "lng": res.map.lng
+          "lng": res.map.lng,
+          "status": res.info.status
         }
         this.storeAddress.push(storeObj);
       });
@@ -127,6 +130,10 @@ export class FindBranchMapViewComponent implements OnInit {
     this.infoWindow.open(marker);
   }
 
+  addMarkers(event: any) {
+    this.enableMarkers = !this.enableMarkers;
+  }
+
   zoomIn() {
     console.log('zoom in');
   }
@@ -142,7 +149,7 @@ export class FindBranchMapViewComponent implements OnInit {
   panToLocation(obj: any) {
     const latLng = new google.maps.LatLng(obj.lat, obj.lng);
     this.map.panTo(latLng);
-    //this.openInfoWindow(this.markers[obj.index], this.markers[obj.index].info);
+    //this.openInfoWindow(this.mapMarkerDummy, this.markers[obj.index].info);
   }
 
   decideView() {

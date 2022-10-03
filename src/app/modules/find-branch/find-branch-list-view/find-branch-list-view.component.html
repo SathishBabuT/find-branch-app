@@ -23,9 +23,13 @@
                 [searchFn]="onSearch"
                 [(ngModel)]="selectedBranch" (change)="addressChange($event)" clearAllText="Clear">
                 <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+                    <i class="fa fa-map-marker me-2"></i>
                     <span>{{item.address}}</span>
                 </ng-template>
             </ng-select>
+            <a class="search-icon">
+                <i class="fa fa-search"></i>
+            </a>
         </div>
         <div class="text-area" *ngIf="!branchList">
             <div class="row">
@@ -49,6 +53,7 @@
                     <li class="row mt-2">
                         <img src="../../../../assets/walk.png" class="col-2 walk-icon">
                         <span class="col-4 p-0">{{data.distance}}</span>
+                        <span class="col-6 p-0 text-end" [ngClass]="{'text-orange': data.status==='Bald geschlossen', 'text-red': data.status==='Geschlossen', 'text-green': data.status==='Geöffnet'}">{{data.status}}</span>
                     </li>
                 </ul>
             </div>
@@ -128,6 +133,7 @@
                 <li class="row mt-2">
                     <img src="../../../../assets/walk.png" class="col-2 walk-icon">
                     <span class="col-4 p-0">{{storeDetail.distance}}</span>
+                    <span class="col-6 p-0 text-end" [ngClass]="{'text-orange': storeDetail.status==='Bald geschlossen', 'text-red': storeDetail.status==='Geschlossen', 'text-green': storeDetail.status==='Geöffnet'}">{{storeDetail.status}}</span>
                 </li>
             </ul>
             <div class="store-details">

@@ -15,9 +15,10 @@
         margin-top: 6%;
         .search-icon {
             position: absolute;
-            top: 19.2%;
-            right: 11%;
+            top: 19.9%;
+            right: 12%;
             cursor: pointer;
+            color: #990000;
         }
     }
     .text-area {
@@ -115,6 +116,18 @@
         margin-top: 6%;
         background: #FFFFFF;
         padding: 12px;
+    }
+    .ng-select ::ng-deep .ng-arrow {
+        display: none;
+    }
+    .text-orange {
+        color: #FC4C02;
+    }
+    .text-red {
+        color: #E20F00;
+    }
+    .text-green {
+        color: #428500;
     }
 }
 

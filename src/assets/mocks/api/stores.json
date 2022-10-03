@@ -115,6 +115,7 @@
             "phone":"05 99 05-6100 00",
             "fax":"",
             "email":"gs100@bawagpsk.com",
+            "status": "Geöffnet",
             "contact":{
                "name":"Roland Engl",
                "advisorType":"Filialleiter"
@@ -170,7 +171,8 @@
             "distanceCalc":"1,2 km",
             "phone":"",
             "fax":"",
-            "email":""
+            "email":"",
+            "status": "Bald geschlossen"
          }
       },
       {
@@ -232,6 +234,7 @@
             "phone":"05 99 05-6046 00",
             "fax":"",
             "email":"gs046@bawagpsk.com",
+            "status": "Geschlossen",
             "contact":{
                "name":"Manuel Steiner",
                "advisorType":"Filialleiter"
@@ -294,6 +297,7 @@
             "phone":"05 99 05-6013 00",
             "fax":"",
             "email":"gs013@bawagpsk.com",
+            "status": "Geschlossen",
             "contact":{
                "name":"Katharina Zuchowicz",
                "advisorType":"Filialleiterin"
@@ -359,6 +363,7 @@
             "phone":"05 99 05-6030 00",
             "fax":"",
             "email":"gs030@bawagpsk.com",
+            "status": "Geschlossen",
             "contact":{
                "name":"Amir Khoshideh",
                "advisorType":"Filialleiter"
@@ -423,6 +428,7 @@
             "phone":"05 99 05-6012 00",
             "fax":"",
             "email":"gs012@bawagpsk.com",
+            "status": "Geschlossen",
             "contact":{
                "name":"Erwin Daubek",
                "advisorType":"Filialleiter"
@@ -489,6 +495,7 @@
             "phone":"05 99 05-6069 00",
             "fax":"",
             "email":"gs069@bawagpsk.com",
+            "status": "Geschlossen",
             "contact":{
                "name":"Martin Horvath",
                "advisorType":"Filialleiter"
@@ -557,6 +564,7 @@
             "phone":"05 99 05-6027 00",
             "fax":"",
             "email":"gs027@bawagpsk.com",
+            "status": "Geschlossen",
             "contact":{
                "name":"Mag. Josef Kargl",
                "advisorType":"Filialleiter"
@@ -612,7 +620,8 @@
             "distanceCalc":"2,5 km",
             "phone":"",
             "fax":"",
-            "email":""
+            "email":"",
+            "status": "Geschlossen"
          }
       },
       {
@@ -661,7 +670,8 @@
             "consultinghours":"nach Vereinbarung",
             "phone":"05 99 05-995",
             "fax":"",
-            "email":"gs132@bawagpsk.com"
+            "email":"gs132@bawagpsk.com",
+            "status": "Geschlossen"
          }
       }
    ]

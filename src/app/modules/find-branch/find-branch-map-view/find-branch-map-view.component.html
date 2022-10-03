@@ -1,12 +1,12 @@
 <section>
     <div class="col-sm-3 find-branch-view" *ngIf="storeAddress.length !== 0">
-        <app-find-branch-list-view [storeAddress]="storeAddress" [listView]="listView" (filterResultEvent) = "filterResults($event)" (panToLocation)="panToLocation($event)"></app-find-branch-list-view>
+        <app-find-branch-list-view [storeAddress]="storeAddress" [listView]="listView" (filterResultEvent) = "filterResults($event)" (addMarkers)="addMarkers($event)" (panToLocation)="panToLocation($event)"></app-find-branch-list-view>
     </div>
     <div class="d-block d-sm-none mobile-view">
         <google-map *ngIf="!listView" #googleMap [options]="mapOptions" [center]="center" width="100%" height="59vh">
-            <map-marker #marker="mapMarker" *ngFor="let mp  of markers" [position]="mp.position" [animation]="mp.animation" [icon]="mp.icon" [options]="mp.options" (mapClick)="openInfoWindow(marker, mp.info)">
+            <map-marker #marker="mapMarker" *ngFor="let mp of markers" [position]="mp.position" [animation]="mp.animation" [icon]="mp.icon" [options]="mp.options" (mapClick)="openInfoWindow(marker, mp.info)">
+                <map-info-window [options]="infoOptions" [position]="mp.position"></map-info-window>
             </map-marker>
-            <map-info-window [options]="infoOptions"></map-info-window>
         </google-map>
     </div>
     <div class="d-none d-sm-block">

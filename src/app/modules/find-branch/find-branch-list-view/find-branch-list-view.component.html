@@ -44,7 +44,7 @@
                 <span class="col-6 heading text-end cursor-pointer filter-active" *ngIf="selectedService.length > 0" (click)="invokeFilter()"><i class="fa fa-filter"></i>{{selectedService.length}}Filter Active</span>
             </div>
             <div class="list-data" *ngIf="listView">
-                <ul #storeDetails *ngFor="let data of branchList; let i = index;" class="branch-list cursor-pointer" (click)="takeToSpecificStore(data, i)">
+                <ul #storeDetails *ngFor="let data of branchList; let i = index;" class="branch-list cursor-pointer" (mouseover)="highlightSpecificStore(data, i)" (mouseout)="removeHighlight(data, i)" (click)="takeToSpecificStore(data, i)">
                     <li class="heading">{{data.title}}</li>
                     <li>{{data.street}}</li>
                     <li>{{data.zip}} {{data.state}}</li>
@@ -147,6 +147,8 @@
                 <span class="d-block"><i class="fa fa-check me-2"></i>Businesskonto</span>
             </div>
         </div>
+        <footer class="d-block d-sm-none">
+        </footer>
     </div>
 </div>
 

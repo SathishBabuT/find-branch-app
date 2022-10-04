@@ -22,7 +22,7 @@ valueSelected: boolean = true;
 @Input() listView: boolean;
 @Output() filterResultEvent = new EventEmitter<any>();
 @Output() panToLocation = new EventEmitter<any>();
-@Output() addMarkers = new EventEmitter<any>();
+@Output() closeInfoWindow = new EventEmitter<any>();
 @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
 @ViewChildren("storeDetails") storeDetails: QueryList<ElementRef>;
 //@ViewChildren("checkboxesTow") checkboxesTwo: QueryList<ElementRef>; 
@@ -114,6 +114,17 @@ valueSelected: boolean = true;
     this.panToLocation.emit(storeDetails);
     this.selectedStoreDetails.push(storeDetails);
     this.navigateToDetailPage = true;
+  }
+
+  highlightSpecificStore(storeDetails: any, index: number) {
+    this.selectedStoreDetails = [];
+    storeDetails['index'] = index;
+    this.panToLocation.emit(storeDetails);
+  }
+
+  removeHighlight(storeDetails: any, index: number) {
+    this.selectedStoreDetails.length = 0;
+    this.closeInfoWindow.emit();
   }
 
   selectService(serviceId: string, eve: any) {

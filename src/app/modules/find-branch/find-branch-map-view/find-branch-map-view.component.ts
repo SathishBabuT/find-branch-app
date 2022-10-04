@@ -21,7 +21,6 @@ export class FindBranchMapViewComponent implements OnInit {
   }
   center: any;
   markers: any[] = [];
-  location_logo = { "url": "../assets/bawag_indicator.png", scaledSize: new google.maps.Size(50, 50)};
   infoOptions = {};
   storeAddress: any[] = [];
   listView: boolean = true;
@@ -56,21 +55,33 @@ export class FindBranchMapViewComponent implements OnInit {
     // );
 
     this.httpClient.get<any>('../../../../assets/mocks/api/stores.json').subscribe(response => {
+      let location_logo = { "url": "../assets/bawag_indicator.png", "scaledSize": {"height": 50, "width": 50}};;
       this.markers.push({
         "position": { "lat": response.map.lat, "lng": response.map.lng},
         "options": {
           "animation": google.maps.Animation.DROP
         },
-        "icon": "https://www.google.com/mapfiles/marker.png"
+        "icon": {
+          path: google.maps.SymbolPath.CIRCLE,
+          strokeColor: '#F6F6F6',
+          fillColor: '#5080F0',
+          fillOpacity: 1,
+          scale: 10
+        }
       })
       const walk="../../../../assets/walk.png";
       response.stores.forEach((res: any, index: number)=> {
+        // if(index===0) {
+        //   location_logo = { "url": "../assets/bawag_indicator.png", "scaledSize": {"height": 60, "width": 60}};
+        // } else {
+        //   location_logo = { "url": "../assets/bawag_indicator.png", "scaledSize": {"height": 30, "width": 30}};
+        // }
         const markerObj = {
           "position": { "lat": res.map.lat, "lng": res.map.lng },
           "options": {
             "animation": google.maps.Animation.DROP
           },
-          "icon": this.location_logo,
+          "icon": location_logo,
           "info": '<div id="content">' + '<h5 class="heading">'+ res.title +'</h5>' +
                     '<div id="bodyContent">' +
                     "<span><b>"
@@ -125,8 +136,10 @@ export class FindBranchMapViewComponent implements OnInit {
 
   openInfoWindow(marker: MapMarker, contentString: string) {
     this.infoOptions = {
+      pixelOffset: new google.maps.Size(0, 0),
       content: contentString
     };
+    //marker.icon = { "url": "../assets/bawag_indicator.png", "scaledSize": {"height": 60, "width": 60} };
     this.infoWindow.open(marker);
   }
 
@@ -149,10 +162,22 @@ export class FindBranchMapViewComponent implements OnInit {
   panToLocation(obj: any) {
     const latLng = new google.maps.LatLng(obj.lat, obj.lng);
     this.map.panTo(latLng);
-    //this.openInfoWindow(this.mapMarkerDummy, this.markers[obj.index].info);
+    // const dummyMarker = new google.maps.Marker({
+    //   position: latLng
+    // });
+    this.infoOptions = {
+      "pixelOffset": new google.maps.Size(0, -35),  // obj.index === 0 ? new google.maps.Size(0, -42) :
+      "position": this.markers[obj.index+1].position,
+      "content": this.markers[obj.index+1].info
+    };
+    this.infoWindow.open(this.mapMarkerDummy);
   }
 
   decideView() {
     this.listView = !this.listView;
+  }
+
+  closeInfoWindow(event: any) {
+    this.infoWindow.close();
   }
 }

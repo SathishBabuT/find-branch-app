@@ -10,34 +10,33 @@
             <h3>Filialfinder</h3>
         </div>
         <div class="search-box">
-            <!--<input type="text" class="col-sm-12">
-            <a class="search-icon">
-                <i class="fa fa-search"></i>
-            </a>-->
             <ng-select
-                [items]="storeAddress"
+                [items]="address | async"
                 [searchable]="true"
-                placeholder="Steet, PostalCode, Address"
+                placeholder = "Steet, PostalCode, Address"
                 notFoundText="No results found. Please try a different search criteria."
-                bindLabel="address"
-                [searchFn]="onSearch"
+                bindLabel="fullName"
+                [trackByFn]="trackByFn"
+                [typeahead]="addressInput$"
+                [minTermLength]="minTermLength"
+                [loading]="isLoading"
                 [(ngModel)]="selectedBranch" (change)="addressChange($event)" clearAllText="Clear">
                 <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
                     <i class="fa fa-map-marker me-2"></i>
-                    <span>{{item.address}}</span>
+                    <span>{{item.street}}, {{item.plz}} {{item.city}}</span>
                 </ng-template>
             </ng-select>
             <a class="search-icon">
                 <i class="fa fa-search"></i>
             </a>
         </div>
-        <div class="text-area" *ngIf="!branchList">
+        <div class="text-area" *ngIf="branchList.length === 0">
             <div class="row">
                 <i class="fa fa-info-circle col-2"></i>
                 <span class="col-10">Allgemeine Informationen in einer Snackbar Notification</span>
             </div>
         </div>
-        <div *ngIf="branchList">
+        <div *ngIf="branchList.length > 0">
             <div class="list-count row">
                 <span class="heading" [ngClass]="selectedService.length>0 ? 'col-6': 'col-8'">{{branchList.length}} Filialen gefunden</span>
                 <span class="col-4 heading text-end cursor-pointer" *ngIf="selectedService.length === 0" (click)="invokeFilter()"><i class="fa fa-filter"></i>Filter</span>

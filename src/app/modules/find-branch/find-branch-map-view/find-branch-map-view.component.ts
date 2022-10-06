@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Loader } from '@googlemaps/js-api-loader';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { ApiCallService } from 'src/app/services/api-call.service';
 
 @Component({
   selector: 'app-find-branch-map-view',
@@ -14,7 +15,7 @@ export class FindBranchMapViewComponent implements OnInit {
   //apiLoaded: Observable<boolean>;
   mapOptions: google.maps.MapOptions = {
     zoom : 14,
-    zoomControl: false,
+    zoomControl: true,
     streetViewControl: true,
     maxZoom: 16,
     minZoom: 4
@@ -24,14 +25,11 @@ export class FindBranchMapViewComponent implements OnInit {
   infoOptions = {};
   storeAddress: any[] = [];
   listView: boolean = true;
-  mobileMode: string;
-  enableMarkers: boolean = false;
   @ViewChild('googleMap', { static: false }) map!: GoogleMap;
   @ViewChild(MapInfoWindow) infoWindow: MapInfoWindow;
   @ViewChild('marker') mapMarkerDummy: MapMarker;
   //@ViewChild(MapInfoWindow) infoWindowViews: QueryList<MapInfoWindow>;
-  constructor(private httpClient: HttpClient, private cd: ChangeDetectorRef) {
-    this.mobileMode = navigator.userAgent;
+  constructor(private httpClient: HttpClient, private cd: ChangeDetectorRef, private apiCall: ApiCallService) {
   }
 
   ngOnInit(): void {
@@ -54,7 +52,46 @@ export class FindBranchMapViewComponent implements OnInit {
     //   catchError(() => of(false)),
     // );
 
-    this.httpClient.get<any>('../../../../assets/mocks/api/stores.json').subscribe(response => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: 48.21100,
+        lng: 16.3718
+      }
+    });
+
+    // https://filialsuche.bawag.at/BAWAGPSK/PK/filialsuche/269546/filialsuche.html?view=asQuery&onlineSales=&maxItems=10&andFilter=true&simple=true&requiredServices=&wsCall=true&lat=48.2088364&lng=16.3734791&postal_code=1010&city=Wien&street=Stephansplatz&locationFilter=address&timestamp=1664286298519&environments=&services=&languages=&storefinderType=simple
+  }
+
+  onModelChange(event: any) {
+    console.log(event);
+  }
+
+  // openInfoWindow(marker: MapMarker, windowIndex: number) {
+  //   let currentIdx = 0;
+  //   this.infoWindowViews.forEach((infoWindow: MapInfoWindow)=> {
+  //     if(windowIndex === currentIdx) {
+  //       infoWindow.open(marker);
+  //       currentIdx++;
+  //     } else {
+  //       currentIdx++;
+  //     }
+  //   })
+  // }
+
+  openInfoWindow(marker: MapMarker, contentString: string, markerIndex?: number) {
+    if(markerIndex!==0) {
+      this.infoOptions = {
+        pixelOffset: new google.maps.Size(0, 0),
+        content: contentString
+      };
+      //marker.icon = { "url": "../assets/bawag_indicator.png", "scaledSize": {"height": 60, "width": 60} };
+      this.infoWindow.open(marker);
+    }
+  }
+
+  drawMarkers(event: any) {
+    console.log(event);
+    this.apiCall.getStoreDetails().subscribe(response => {
       let location_logo = { "url": "../assets/bawag_indicator.png", "scaledSize": {"height": 50, "width": 50}};;
       this.markers.push({
         "position": { "lat": response.map.lat, "lng": response.map.lng},
@@ -104,47 +141,10 @@ export class FindBranchMapViewComponent implements OnInit {
           "status": res.info.status
         }
         this.storeAddress.push(storeObj);
+        //this.loadStores(this.storeAddress);
       });
       this.cd.detectChanges();
     });
-
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.center = {
-        lat: 48.21100,
-        lng: 16.3718
-      }
-    });
-
-    // https://filialsuche.bawag.at/BAWAGPSK/PK/filialsuche/269546/filialsuche.html?view=asQuery&onlineSales=&maxItems=10&andFilter=true&simple=true&requiredServices=&wsCall=true&lat=48.2088364&lng=16.3734791&postal_code=1010&city=Wien&street=Stephansplatz&locationFilter=address&timestamp=1664286298519&environments=&services=&languages=&storefinderType=simple
-  }
-
-  onModelChange(event: any) {
-    console.log(event);
-  }
-
-  // openInfoWindow(marker: MapMarker, windowIndex: number) {
-  //   let currentIdx = 0;
-  //   this.infoWindowViews.forEach((infoWindow: MapInfoWindow)=> {
-  //     if(windowIndex === currentIdx) {
-  //       infoWindow.open(marker);
-  //       currentIdx++;
-  //     } else {
-  //       currentIdx++;
-  //     }
-  //   })
-  // }
-
-  openInfoWindow(marker: MapMarker, contentString: string) {
-    this.infoOptions = {
-      pixelOffset: new google.maps.Size(0, 0),
-      content: contentString
-    };
-    //marker.icon = { "url": "../assets/bawag_indicator.png", "scaledSize": {"height": 60, "width": 60} };
-    this.infoWindow.open(marker);
-  }
-
-  addMarkers(event: any) {
-    this.enableMarkers = !this.enableMarkers;
   }
 
   zoomIn() {

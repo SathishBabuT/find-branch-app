@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
+import { catchError, concat, debounceTime, distinctUntilChanged, filter, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
+import { ApiCallService } from 'src/app/services/api-call.service';
 
 @Component({
   selector: 'app-find-branch-list-view',
@@ -17,17 +19,22 @@ selectedService: any[] = [];
 selectedStoreDetails: any[];
 navigateToDetailPage: boolean = false;
 valueSelected: boolean = true;
+minTermLength: number = 3;
+isLoading: boolean = false;
+addressInput$ = new Subject<string>();
+address: Observable<any>;
 
 @Input() storeAddress: any[];
 @Input() listView: boolean;
 @Output() filterResultEvent = new EventEmitter<any>();
 @Output() panToLocation = new EventEmitter<any>();
 @Output() closeInfoWindow = new EventEmitter<any>();
+@Output() drawMarkers = new EventEmitter<any>();
 @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
 @ViewChildren("storeDetails") storeDetails: QueryList<ElementRef>;
 //@ViewChildren("checkboxesTow") checkboxesTwo: QueryList<ElementRef>; 
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private apiCall: ApiCallService) {
   }
 
   ngOnInit(): void {
@@ -72,6 +79,7 @@ valueSelected: boolean = true;
       "label": "Businesskonto"
     }];
     this.branchList = this.storeAddress;
+    this.loadStoreDetails();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -80,18 +88,53 @@ valueSelected: boolean = true;
     }
   }
 
-  onSearch(term: string, item: any) {
-    term = term.toLocaleLowerCase();
-    return item.address.toLocaleLowerCase().indexOf(term) > -1;
-  }
+  // onSearch(term: string, item: any) {
+  //   term = term.toLocaleLowerCase();
+  //   return item.address.toLocaleLowerCase().indexOf(term) > -1;
+  // }
 
   addressChange(selectedObj:any) {
+    console.log(selectedObj);
+    if(selectedObj) {
+      this.drawMarkers.emit();
+    }
     // if(selectedObj) {
     //   this.valueSelected = true;
     //   this.branchList = this.storeAddress;
     //   this.addMarkers.emit();
     // }
     //this.branchList = this.storeAddress.filter(data => data.street === selectedObj.street);
+  }
+
+  loadStoreDetails() {
+    this.address = concat(
+      of([]),
+      this.addressInput$.pipe(
+        filter(res => {
+          return res !== null && res.length >= this.minTermLength 
+        }),
+        distinctUntilChanged(),
+        debounceTime(800),
+        tap(()=> this .isLoading = true),
+        switchMap(term => { 
+          return this.apiCall.getAddressAlone().pipe(map(res=> {
+          return this.reprocess(res)}),
+          catchError(() => of([])),
+          tap(() => this.isLoading = false)
+          )
+        })
+
+      )
+    )
+  }
+
+  reprocess(res: any) {
+    let address:any[] = [];
+    res.forEach((r:any) => {
+      r.info.address['fullName'] = r.info.address.street + ',' +r.info.address.plz + r.info.address.city;
+      address.push(r.info.address);
+    })
+    return address;
   }
 
   invokeFilter() {
@@ -145,6 +188,10 @@ valueSelected: boolean = true;
   navigateBack() {
     this.selectedStoreDetails.length = 0;
     this.navigateToDetailPage = false;
+  }
+
+  trackByFn(item: any) {
+    return item.id;
   }
 
 }

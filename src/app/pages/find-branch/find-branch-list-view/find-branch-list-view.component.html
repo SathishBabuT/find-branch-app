@@ -72,8 +72,8 @@
                   </h2>
                   <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
                     <div class="accordion-body">
-                        <div *ngFor="let service of serviceListOne; let i = index;" class="row service-list">
-                            <input #checkboxes type="checkbox" value="{{service.id}}" (change)="selectService(service.id, $event)" class="col-2 cursor-pointer">
+                        <div *ngFor="let service of serviceListOne" class="row service-list">
+                            <input #checkboxes type="checkbox" [(ngModel)]="service.isSelected" (change)="selectService(service.id, $event)" class="col-2 cursor-pointer">
                             <label class="col-10">{{service.label}}</label>
                         </div>
                     </div>
@@ -87,9 +87,9 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
                       <div class="accordion-body">
-                        <div *ngFor="let service of serviceListTwo" class="row service-list">
-                            <input #checkboxes type="checkbox" value="{{service.id}}" class="col-2">
-                            <label class="col-10">{{service.label}}</label>
+                        <div *ngFor="let service2 of serviceListTwo" class="row service-list">
+                            <input #checkboxes type="checkbox" [(ngModel)]="service2.isSelected" (change)="selectService(service2.id, $event)" class="col-2">
+                            <label class="col-10">{{service2.label}}</label>
                         </div>
                       </div>
                     </div>

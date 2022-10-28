@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 let redirectUrl = '/findBranch';
 const routes: Routes = [
   { path: '', redirectTo: redirectUrl, pathMatch: 'full' },
-  { path: 'findBranch', loadChildren: () => import(`./modules/find-branch/find-branch.module`).then(
+  { path: 'findBranch', loadChildren: () => import(`./pages/find-branch/find-branch.module`).then(
     module => module.FindBranchModule
   )}
 ];

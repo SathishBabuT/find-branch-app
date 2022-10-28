@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="apiLoaded | async">
     <div class="col-sm-4 col-md-3 find-branch-view">
         <app-find-branch-list-view [storeAddress]="storeAddress" [listView]="listView" (drawMarkers)="drawMarkers($event)" (filterResultEvent)="filterResults($event)" (closeInfoWindow)="closeInfoWindow($event)" (panToLocation)="panToLocation($event)"></app-find-branch-list-view>
     </div>

@@ -70,13 +70,16 @@ address: Observable<any>;
     }];
     this.serviceListTwo = [{
       "id": "104598",
-      "label": "SB Zone 7 / 24"
+      "label": "SB Zone 7 / 24",
+      "isSelected": false
     }, {
       "id": "88654",
-      "label": "Barrierefrei"
+      "label": "Barrierefrei",
+      "isSelected": false
     }, {
       "id": "84566",
-      "label": "Businesskonto"
+      "label": "Businesskonto",
+      "isSelected": false
     }];
     this.branchList = this.storeAddress;
     this.loadStoreDetails();
@@ -84,7 +87,7 @@ address: Observable<any>;
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes['storeAddress']) {
-      console.log(changes['storeAddress']);
+      this.branchList = changes['storeAddress'].currentValue;
     }
   }
 
@@ -146,6 +149,12 @@ address: Observable<any>;
       element.nativeElement.checked = false;
     });
     this.selectedService.length = 0;
+    this.serviceListOne.forEach((serviceOne)=> {
+      serviceOne.isSelected = false;
+    });
+    this.serviceListTwo.forEach((serviceTwo)=> {
+      serviceTwo.isSelected = false;
+    });
     // this.checkboxesTwo.forEach((element) => {
     //   element.nativeElement.checked = false;
     // });

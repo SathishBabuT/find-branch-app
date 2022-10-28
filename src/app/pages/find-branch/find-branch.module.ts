@@ -9,7 +9,7 @@ import { FindBranchListViewComponent } from './find-branch-list-view/find-branch
 import { FindBranchMapViewComponent } from './find-branch-map-view/find-branch-map-view.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     FindBranchRoutingModule,
     GoogleMapsModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

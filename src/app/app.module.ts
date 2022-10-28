@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FindBranchModule } from './modules/find-branch/find-branch.module';
+import { FindBranchModule } from './pages/find-branch/find-branch.module';
 
 @NgModule({
   declarations: [
